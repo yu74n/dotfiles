@@ -1,0 +1,6 @@
+if has('win32')
+	nnoremap <A-Enter> :<C-u>SM 4<Cr>
+	nnoremap <C-Enter> :<C-u>SM 0<Cr>
+	colorscheme wombat
+	gui
+endif

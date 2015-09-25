@@ -1,0 +1,160 @@
+set nocompatible
+set fileencodings=iso-2002,utf-8,euc-jp,cp932
+set clipboard+=unnamed
+"set clipboard=unnamedplus
+set backspace=indent,eol,start
+set wrapscan
+set foldmethod=marker
+set omnifunc=htmlcomplete
+set autoread
+set hidden
+set ignorecase
+set smartcase
+set visualbell
+set t_Co=256
+set background=dark
+"colorscheme wombat256 
+syntax on
+set tags=./tags,tags,~/tags/tags,~/.git/tags
+
+"vundle {{{1
+"--------------------
+set nocompatible              " be iMproved
+filetype off                  " required!
+
+set rtp+=~/.vim/bundle/Vundle.vim
+"call vundle#rc()
+call vundle#begin()
+
+" let Vundle manage Vundle
+" required! 
+Bundle 'gmarik/vundle'
+
+" My bundles here:
+"
+" original repos on GitHub
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'tpope/vim-fugitive'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+Bundle 'tpope/vim-rails.git'
+Bundle 'rking/ag.vim'
+Bundle 'Shougo/neocomplcache'
+Bundle 'Shougo/neomru.vim'
+Bundle "Shougo/unite.vim"
+Bundle 'Shougo/vimproc'
+Bundle 'Shougo/vimshell'
+"Bundle "git://github.com/Shougo/vimproc" 
+
+" vim-scripts repos
+Bundle 'surround.vim'
+Bundle 'FuzzyFinder'
+Bundle 'ruby-matchit'
+Bundle 'L9'
+" non-GitHub repos
+Bundle 'git://git.wincent.com/command-t.git'
+" Git repos on your local machine (i.e. when working on your own plugin)
+" ...
+call vundle#end()
+filetype plugin indent on     " required!
+"
+" Brief help
+" :BundleList          - list configured bundles
+" :BundleInstall(!)    - install (update) bundles
+" :BundleSearch(!) foo - search (or refresh cache first) for foo
+" :BundleClean(!)      - confirm (or auto-approve) removal of unused bundles
+"
+" see :h vundle for more details or wiki for FAQ
+" NOTE: comments after Bundle commands are not allowed.
+
+"display {{{1
+"--------------------
+set hlsearch
+set ruler
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
+"search {{{1
+"--------------------
+set incsearch
+
+"key mapping{{{1
+"--------------------
+noremap j gj
+noremap k gk
+noremap gj j
+noremap gk k
+"nnoremap <C-h> :<C-u>help<space>
+nnoremap <C-h> :<C-u>Unite file_mru<CR>
+nnoremap <space>w :<C-u>write<Cr>
+noremap <space>q :<C-u>quit<CR>
+nnoremap <silent> <C-j> :<C-u>CdCurrent<CR>
+nnoremap <expr> s* ':%substitute/\<' . expand('<cword>') . '\>/'
+nnoremap cr :<C-u>set path+=app/**,config/**,spec/**,db/**<CR>
+nnoremap cd :<C-u>e %:h<CR>
+nnoremap csp :<C-u>sp %:h<CR>
+nnoremap cv :<C-u>vs %:h<CR>
+
+"gnu global{{{1
+"--------------------
+noremap <C-n> :<C-u>cn<CR>
+noremap <C-p> :<C-u>cp<CR>
+noremap <C-j> :<C-u>Gtags -f %<CR>
+noremap <C-k> :<C-u>GtagsCursor<CR>
+noremap <C-l> :<C-u>Gtags -g 
+
+"gvimで定義------------------------
+"nnoremap <A-Enter> :FullScreen<Cr>
+"nnoremap <C-Enter> :SM 0<Cr>
+"----------------------------------
+
+nnoremap <silent> gh :noh<Cr>
+imap <buffer><C-g> <Plug>(vimshell_history_neocomplete)
+"vimrc{{{1
+"--------------------
+nnoremap <space>.
+\		:<C-u>edit $MYVIMRC<CR>
+nnoremap <space>s.
+\		:<C-u>source $MYVIMRC<CR>
+
+"NERDcommnet{{{1
+"--------------------
+let NERDSpaceDelims = 1
+let NERDShutUp = 1
+
+
+"vimshell{{{1
+"--------------------
+let g:vimshell_prompt = "% "
+nnoremap <silent> vs :<C-u>VimShell<CR>
+nnoremap <silent> vc :<C-u>VimShellCreate<CR>
+nnoremap <silent> vp :<C-u>VimShellPop<CR>
+"
+"neocomplcache{{{1
+"--------------------
+let g:neocomplcache_enable_at_startup = 0
+"unite{{{1
+"--------------------
+" insert modeで開始
+let g:unite_enable_start_insert = 1
+
+" 大文字小文字を区別しない
+let g:unite_enable_ignore_case = 1
+let g:unite_enable_smart_case = 1
+
+" grep検索
+nnoremap <silent> ,g  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
+
+" カーソル位置の単語をgrep検索
+nnoremap <silent> ,gc :<C-u>Unite grep:.  -buffer-name=search-buffer<CR><C-R><C-W>
+
+" grep検索結果の再呼出
+nnoremap <silent> ,r  :<C-u>UniteResume search-buffer<CR>
+
+" unite grep に ag(The Silver Searcher) を使う
+if executable('ag')
+  let g:unite_source_grep_command = 'ag'
+  let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
+  let g:unite_source_grep_recursive_opt = ''
+endif

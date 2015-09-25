@@ -1,0 +1,38 @@
+[color]
+  ui = auto
+[alias]
+  b = blame
+  br = branch
+  cf = config
+  cl = clone
+  cm = commit
+  co = checkout
+  cob = checkout -b 
+  com = checkout master
+  cp = cherry-pick
+  d = diff
+  dc = diff --cached
+  dh = diff HEAD~
+  f = fetch upstream
+  l = log
+  lo = log --oneline
+  m = merge
+  mm = merge master
+  pl = pull
+  ps = push
+  pso = push origin
+  rb = rebase
+  rh = reset --hard
+  rh0 = reset --hard HEAD
+  rh1 = reset --hard HEAD~1
+  sl = stash list
+  sp = stash pop
+  ss = stash save
+  st = status
+[core]
+  excludesfile = ~/.gitignore
+  editor = /usr/local/bin/vim
+[push]
+  default = simple
+[user]
+  name = "Yuta Hongo"
