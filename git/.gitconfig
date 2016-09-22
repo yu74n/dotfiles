@@ -1,11 +1,14 @@
 [color]
   ui = auto
 [alias]
+  a = add
   b = blame
-  br = branch
+  br = branch -vv
+  brn = branch
   cf = config
   cl = clone
   cm = commit
+  cme = commit --allow-empty
   co = checkout
   cob = checkout -b 
   com = checkout master
@@ -16,23 +19,33 @@
   f = fetch upstream
   l = log
   lo = log --oneline
+  lg = log --oneline --graph
   m = merge
   mm = merge master
   pl = pull
   ps = push
   pso = push origin
+  r0 = reset HEAD
+  r1 = reset HEAD~1
   rb = rebase
   rh = reset --hard
   rh0 = reset --hard HEAD
   rh1 = reset --hard HEAD~1
+  rv = revert
+  s  = submodule
   sl = stash list
   sp = stash pop
   ss = stash save
   st = status
+  su = submodule update
 [core]
   excludesfile = ~/.gitignore
   editor = /usr/local/bin/vim
+  autocrlf = input
+  ignorecase = false
 [push]
   default = simple
 [user]
   name = "Yuta Hongo"
+[credential]
+	helper = osxkeychain
