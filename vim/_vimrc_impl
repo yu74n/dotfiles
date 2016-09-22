@@ -1,7 +1,6 @@
 set nocompatible
 set fileencodings=iso-2002,utf-8,euc-jp,cp932
 set clipboard+=unnamed
-"set clipboard=unnamedplus
 set backspace=indent,eol,start
 set wrapscan
 set foldmethod=marker
@@ -12,10 +11,11 @@ set ignorecase
 set smartcase
 set visualbell
 set t_Co=256
-set background=dark
-"colorscheme wombat256 
+set background=light
 syntax on
-set tags=./tags,tags,~/tags/tags,~/.git/tags
+set tags=./tags,tags,~/.git/tags
+set rtp+=$GOROOT/misc/vim
+exe "set rtp+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
 
 "vundle {{{1
 "--------------------
@@ -44,9 +44,14 @@ Bundle 'Shougo/neomru.vim'
 Bundle "Shougo/unite.vim"
 Bundle 'Shougo/vimproc'
 Bundle 'Shougo/vimshell'
+Bundle 'mustache/vim-mustache-handlebars'
+Bundle 'suan/vim-instant-markdown'
+Bundle "lepture/vim-jinja"
+Bundle 'fatih/vim-go'
 "Bundle "git://github.com/Shougo/vimproc" 
 
 " vim-scripts repos
+Bundle 'Markdown'
 Bundle 'surround.vim'
 Bundle 'FuzzyFinder'
 Bundle 'ruby-matchit'
@@ -95,6 +100,7 @@ nnoremap cr :<C-u>set path+=app/**,config/**,spec/**,db/**<CR>
 nnoremap cd :<C-u>e %:h<CR>
 nnoremap csp :<C-u>sp %:h<CR>
 nnoremap cv :<C-u>vs %:h<CR>
+nnoremap ct :<C-u>checktime<CR>
 
 "gnu global{{{1
 "--------------------
@@ -158,3 +164,13 @@ if executable('ag')
   let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
   let g:unite_source_grep_recursive_opt = ''
 endif
+
+"autocmd{{{1
+augroup vimrc-checktime
+    autocmd!
+    autocmd WinEnter * checktime
+augroup END
+augroup Indent
+    autocmd!
+    autocmd BufRead,BufNewFile *.yml setfiletype yaml
+augroup END
