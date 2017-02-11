@@ -1,4 +1,3 @@
-code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
 alias vi='vim'
 alias g='git'
 alias va='vagrant'
@@ -6,18 +5,24 @@ alias ll='ls -l'
 alias la='ls -a'
 alias l1='ls -1'
 alias gc='gcloud'
-alias gdmb="git branch --merged | grep -vE '^\*|master$|v[0-9]\.[0-9]$' | xargs -I % git branch -d %"
+alias delbr="git branch --merged | grep -vE '^\*|master$|v[0-9]\.[0-9]$' | xargs -I % git branch -D %"
 alias pb="pbcopy"
 alias svncm='svn commit'
 alias svnst='svn status'
 alias svnco='svn checkout'
 alias d='docker'
+alias de='docker exec'
+alias di='docker inspect'
 alias dp='docker ps -a'
 alias dr='docker run'
 alias dm='docker-machine'
-alias di='docker inspect'
-alias de='docker exec'
+alias denv='eval $(docker-machine env)'
 alias newtag='find * -type d -exec ~/bash/script/dirtags {} \;'
+alias oa='open -a /Applications/IntelliJ\ IDEA.app/'
+alias act='. ~/env/scraping/bin/activate'
+alias dact='deactivate'
+alias py='python'
+alias b='vi ~/.bashrc'
 
 source ~/.git-completion.bash
 source ~/.git-prompt.sh

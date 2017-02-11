@@ -16,6 +16,8 @@ syntax on
 set tags=./tags,tags,~/.git/tags
 set rtp+=$GOROOT/misc/vim
 exe "set rtp+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
+set pastetoggle=<F11>
+let g:syntastic_python_checkers = ['pylint']
 
 "vundle {{{1
 "--------------------
@@ -48,6 +50,10 @@ Bundle 'mustache/vim-mustache-handlebars'
 Bundle 'suan/vim-instant-markdown'
 Bundle "lepture/vim-jinja"
 Bundle 'fatih/vim-go'
+Bundle 'pearofducks/ansible-vim'
+Bundle 'scrooloose/syntastic'
+Bundle 'tyru/open-browser.vim'
+Bundle 'tyru/open-browser-github.vim'
 "Bundle "git://github.com/Shougo/vimproc" 
 
 " vim-scripts repos
@@ -98,6 +104,7 @@ nnoremap <silent> <C-j> :<C-u>CdCurrent<CR>
 nnoremap <expr> s* ':%substitute/\<' . expand('<cword>') . '\>/'
 nnoremap cr :<C-u>set path+=app/**,config/**,spec/**,db/**<CR>
 nnoremap cd :<C-u>e %:h<CR>
+nnoremap ce :<C-u>e %:h
 nnoremap csp :<C-u>sp %:h<CR>
 nnoremap cv :<C-u>vs %:h<CR>
 nnoremap ct :<C-u>checktime<CR>
