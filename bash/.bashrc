@@ -19,26 +19,17 @@ alias dm='docker-machine'
 alias denv='eval $(docker-machine env)'
 alias newtag='find * -type d -exec ~/bash/script/dirtags {} \;'
 alias oa='open -a /Applications/IntelliJ\ IDEA.app/'
-alias act='. ~/env/scraping/bin/activate'
 alias dact='deactivate'
 alias py='python'
 alias b='vi ~/.bashrc'
 
-source ~/.git-completion.bash
 source ~/.git-prompt.sh
+source ~/.git-completion.bash
 GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWUPSTREAM=1
 GIT_PS1_SHOWUNTRACKEDFILES=1
 GIT_PS1_SHOWSTASHSTATE=1
 PS1='\[\e[0;32m\][\u@ \w]$(__git_ps1 " (%s)")\$\[\e[m\] '
-
-export GOROOT=/usr/local/opt/go/libexec
-export GOPATH=$HOME/work/go
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
-
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
 
 eval $(docker-machine env)
 
