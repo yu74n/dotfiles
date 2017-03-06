@@ -29,7 +29,7 @@ GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWUPSTREAM=1
 GIT_PS1_SHOWUNTRACKEDFILES=1
 GIT_PS1_SHOWSTASHSTATE=1
-PS1='\[\e[0;32m\][\u@ \w]$(__git_ps1 " (%s)")\$\[\e[m\] '
+PS1='\[\e[0;32m\][\u@\h \w]$(__git_ps1 " (%s)")\$\[\e[m\] '
 
 eval $(docker-machine env)
 
