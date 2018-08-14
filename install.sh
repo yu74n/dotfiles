@@ -4,6 +4,8 @@ cp bash/.bashrc ~
 cp git/.gitconfig ~
 cp -r vim/.vim ~
 cp vim/.vimrc ~
+# Please comment in below if you want to enable 'suan/vim-instant-markdown'
+#npm -g install instant-markdown-d
 
 BASH_SCRIPT_PATH=$HOME/bash/script
 mkdir -p $BASH_SCRIPT_PATH

@@ -49,7 +49,6 @@ Bundle 'Shougo/vimshell'
 Bundle 'mustache/vim-mustache-handlebars'
 Bundle 'suan/vim-instant-markdown'
 Bundle "lepture/vim-jinja"
-Bundle 'fatih/vim-go'
 Bundle 'pearofducks/ansible-vim'
 Bundle 'scrooloose/syntastic'
 Bundle 'tyru/open-browser.vim'
