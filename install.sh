@@ -4,6 +4,7 @@ cp bash/.bashrc ~
 cp git/.gitconfig ~
 cp -r vim/.vim ~
 cp vim/.vimrc ~
+cp tmux/.tmux.conf ~
 # Please comment in below if you want to enable 'suan/vim-instant-markdown'
 #npm -g install instant-markdown-d
 
