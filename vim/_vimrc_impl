@@ -9,7 +9,7 @@ set autoread
 set hidden
 set ignorecase
 set smartcase
-set visualbell
+set novisualbell
 set t_Co=256
 set background=dark
 syntax on
@@ -53,6 +53,9 @@ Bundle 'pearofducks/ansible-vim'
 Bundle 'scrooloose/syntastic'
 Bundle 'tyru/open-browser.vim'
 Bundle 'tyru/open-browser-github.vim'
+Bundle 'fatih/vim-go'
+Bundle 'ctrlpvim/ctrlp.vim'
+Bundle 'kylef/apiblueprint.vim'
 "Bundle "git://github.com/Shougo/vimproc" 
 
 " vim-scripts repos

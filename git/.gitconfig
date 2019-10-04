@@ -11,6 +11,7 @@
   cme = commit --allow-empty
   co = checkout
   cob = checkout -b 
+  cod = checkout develop
   com = checkout master
   cp = cherry-pick
   d = diff
@@ -20,17 +21,28 @@
   l = log
   lo = log --oneline
   lg = log --oneline --graph
+  lg1 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+  lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
   m = merge
   mm = merge master
   pl = pull
+  plu = pull upstream
+  plum = pull upstream master
+  plud = pull upstream develop
   ps = push
+  pso = push origin master
   pso = push origin
   r0 = reset HEAD
   r1 = reset HEAD~1
   rb = rebase
+  rbc = rebase --continue
   rh = reset --hard
   rh0 = reset --hard HEAD
   rh1 = reset --hard HEAD~1
+  rt = remote
+  rta = remote add
+  rtu = remote add upstream
+  rtv = remote -v
   rv = revert
   s  = submodule
   sl = stash list
@@ -44,4 +56,9 @@
   autocrlf = input
   ignorecase = false
 [user]
-  name = "Yuta Hongo"
+  name = Yuta Hongo
+[filter "lfs"]
+  required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
