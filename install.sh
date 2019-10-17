@@ -1,7 +1,7 @@
 #!/bin/bash
 
 cp bash/.bashrc ~
-cp git/.gitconfig ~
+cp git/.git* ~
 cp -r vim/.vim ~
 cp vim/.vimrc ~
 cp tmux/.tmux.conf ~
