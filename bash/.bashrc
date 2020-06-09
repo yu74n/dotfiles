@@ -42,4 +42,8 @@ export_JAVA_OPTIONS="-Dfiles.encoding=UTF-8"
 #svn setting
 export SVN_EDITOR=vim
 
-. $HOME/bash/config/local.sh
+LOCAL_CONFIG=$HOME/bash/config/local.sh
+
+if [ -f "$LOCAL_CONFIG" ]; then
+    . $LOCAL_CONFIG
+fi
