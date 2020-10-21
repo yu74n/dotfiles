@@ -33,6 +33,8 @@ fi
 cd ~/.vim/bundle/vimproc && make
 cd ~
 wget -O .git-completion.bash https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
+wget -O .git-completion.zsh https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.zsh
 wget -O .git-prompt.sh https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
-. .bashrc
 
+mkdir ~/.zsh
+mv .git-completion.zsh ~/.zsh
