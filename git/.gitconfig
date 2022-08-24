@@ -14,6 +14,7 @@
   cod = checkout develop
   com = checkout master
   cp = cherry-pick
+  cpc = cherry-pick --continue
   d = diff
   dc = diff --cached
   dh = diff HEAD~
@@ -47,7 +48,7 @@
   s  = submodule
   sl = stash list
   sp = stash pop
-  ss = stash save
+  ss = stash push
   st = status
   su = submodule update
 [core]
@@ -62,3 +63,5 @@
   clean = git-lfs clean -- %f
   smudge = git-lfs smudge -- %f
   process = git-lfs filter-process
+[pull]
+  ff = only

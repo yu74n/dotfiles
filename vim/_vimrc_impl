@@ -36,7 +36,6 @@ Bundle 'gmarik/vundle'
 "
 " original repos on GitHub
 Bundle 'kchmck/vim-coffee-script'
-Bundle 'tpope/vim-fugitive'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'tpope/vim-rails.git'
@@ -53,7 +52,7 @@ Bundle 'pearofducks/ansible-vim'
 Bundle 'scrooloose/syntastic'
 Bundle 'tyru/open-browser.vim'
 Bundle 'tyru/open-browser-github.vim'
-Bundle 'fatih/vim-go'
+"Bundle 'fatih/vim-go'
 Bundle 'ctrlpvim/ctrlp.vim'
 Bundle 'kylef/apiblueprint.vim'
 "Bundle "git://github.com/Shougo/vimproc" 
